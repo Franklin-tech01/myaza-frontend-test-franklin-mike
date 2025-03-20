@@ -6,6 +6,10 @@ import User from "/public/assets/icons/user.svg";
 import Settings from "/public/assets/icons/settings.svg";
 import Help from "/public/assets/icons/help.svg";
 import Dark from "/public/assets/icons/dark.svg";
+import Search from "/public/assets/icons/search.svg";
+import Dropdown from "/public/assets/icons/dropdown.svg";
+import Arrowup from "/public/assets/icons/arrowup.svg";
+import Arrowdown from "/public/assets/icons/arrowdown.svg";
 
 const Icons = {
 	Logo,
@@ -16,6 +20,10 @@ const Icons = {
 	Settings,
 	Help,
 	Dark,
+	Search,
+	Dropdown,
+	Arrowup,
+	Arrowdown,
 };
 
 export default Icons;

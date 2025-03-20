@@ -103,9 +103,9 @@ const Navigation = () => {
 									<Link href={link.to}>
 										<Link
 											href={""}
-											className='block transition-all  hover:bg-[#CBC8FF] hover:text-white rounded-lg w-full text-white px-4 py-3'>
+											className='block transition-all  hover:bg-[#CBC8FF] hover:text-[#141332] rounded-lg w-full text-white px-4 py-3'>
 											<div className='flex items-center space-x-6'>
-												<div className={cn("fill-white transition-all", {})}>
+												<div className={cn(" bg-none transition-all", {})}>
 													{link.icon}
 												</div>
 												<div className=''>{link.name}</div>

@@ -1,149 +1,140 @@
 "use client";
-
 import React, { useState } from "react";
+import Icons from "@/components/icons";
+import {
+	BarChart,
+	Bar,
+	XAxis,
+	YAxis,
+	CartesianGrid,
+	Tooltip,
+	ResponsiveContainer,
+} from "recharts";
 
 const AnalyticsChart = () => {
 	const [selectedYear, setSelectedYear] = useState("2020");
+	const [activeTooltip, setActiveTooltip] = useState(null);
 
-	// Chart data
-	const chartData = [
-		{ month: "Jan", income: 36000, outcome: 26000 },
+	// Chart data with precise values matching the image
+	const data = [
+		{ month: "Jan", income: 35000, outcome: 25000 },
 		{ month: "Feb", income: 26000, outcome: 33000 },
 		{ month: "Mar", income: 29000, outcome: 22000 },
-		{ month: "Apr", income: 36000, outcome: 26000 },
+		{ month: "Apr", income: 35000, outcome: 26000 },
 		{ month: "May", income: 40000, outcome: 33000 },
-		{ month: "Jun", income: 22000, outcome: 28000 },
-		{ month: "Jul", income: 22000, outcome: 28000 },
-		{ month: "Aug", income: 22000, outcome: 28000 },
+		{ month: "Jun", income: 22000, outcome: 27000 },
+		{ month: "Jul", income: 22000, outcome: 27000 },
+		{ month: "Aug", income: 22000, outcome: 27000 },
 	];
 
-	const [tooltip, setTooltip] = useState({
-		show: false,
-		month: "",
-		value: 0,
-		x: 0,
-		y: 0,
-	});
-
-	const maxValue = 50000; // Y-axis max value
-	const chartHeight = 280;
-	const barWidth = 20;
-	const barGap = 8;
-	const groupGap = 36;
-
-	const showTooltip = (month: string, value: number, x: number, y: number) => {
-		setTooltip({ show: true, month, value, x, y });
+	// Custom tooltip component
+	const CustomTooltip = ({
+		active,
+		payload,
+		label,
+	}: {
+		active?: boolean;
+		payload?: { value: number }[];
+		label?: string;
+	}) => {
+		if (active && payload && payload.length) {
+			return (
+				<div className='bg-[#464687] h-[55px] flex flex-col items-center justify-center p-4 rounded-lg shadow-lg text-white'>
+					<p className='text-xs font-medium mb-1'>{`${label} ${selectedYear}`}</p>
+					<p className='text-xs font-bold'>${payload[0].value.toFixed(1)}</p>
+				</div>
+			);
+		}
+		return null;
 	};
 
-	const hideTooltip = () => {
-		setTooltip({ ...tooltip, show: false });
+	// Format y-axis ticks
+	const formatYAxis = (value: number) => {
+		return `${value / 1000}K`;
 	};
 
 	return (
-		<div className='w-full max-w-4xl p-8 bg-indigo-950 rounded-lg text-white'>
-			<div className='flex justify-between items-center mb-6'>
-				<h2 className='text-2xl font-bold'>Analytics</h2>
-				<div className='flex items-center'>
-					<div className='flex items-center mr-4'>
-						<div className='w-3 h-3 bg-[#1D1D41] rounded-full mr-2'></div>
-						<span>Income</span>
-					</div>
-					<div className='flex items-center mr-4'>
-						<div className='w-3 h-3 bg-[#64CFF6] rounded-full mr-2'></div>
-						<span>Outcome</span>
-					</div>
-					<div className='relative'>
-						<button className='bg-transparent border border-gray-600 rounded px-4 py-1 flex items-center'>
-							{selectedYear}
-							<svg
-								className='w-4 h-4 ml-2'
-								fill='none'
-								stroke='currentColor'
-								viewBox='0 0 24 24'
-								xmlns='http://www.w3.org/2000/svg'>
-								<path
-									strokeLinecap='round'
-									strokeLinejoin='round'
-									strokeWidth='2'
-									d='M19 9l-7 7-7-7'></path>
-							</svg>
-						</button>
+		<div
+			className='w-full'
+			style={{
+				width: "588px",
+				height: "341px",
+				borderRadius: "16px",
+				overflow: "hidden",
+				backgroundColor: "#1D1D41",
+			}}>
+			<div className='flex justify-between items-center px-8 pt-6'>
+				<div className='flex w-[540px] justify-between items-center space-x-6'>
+					<h2 className='text-2xl font-bold text-white'>Analytics</h2>
+					<div className=' flex items-center space-x-4'>
+						<div className='flex items-center'>
+							<div className='w-4 h-4 bg-[#6359E9] rounded-full mr-2'></div>
+							<span className='text-[16px] font-semibold text-white'>
+								Income
+							</span>
+						</div>
+						<div className='flex items-center'>
+							<div className='w-4 h-4 bg-[#64CFF6] rounded-full mr-2'></div>
+							<span className='text-[16px] font-semibold text-white'>
+								Outcome
+							</span>
+						</div>
+						<div className='relative '>
+							<button className='bg-transparent border  gap-1 border-[#8C89B4] rounded-sm px-[8px] py-1 flex items-center'>
+								<span className=' text-[#8C89B4] text-xs'>{selectedYear}</span>
+								<Icons.Dropdown />
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
 
-			<div className='relative h-64'>
-				{/* Y-axis labels */}
-				<div className='absolute left-0 top-0 h-full flex flex-col justify-between text-sm text-gray-400'>
-					<div>50K</div>
-					<div>40K</div>
-					<div>30K</div>
-					<div>20K</div>
-					<div>10K</div>
-				</div>
-
-				{/* Grid lines */}
-				<div className='absolute left-12 right-0 top-0 h-full'>
-					{[0, 1, 2, 3, 4].map((i) => (
-						<div
-							key={i}
-							className='border-t border-gray-700 border-dashed h-1/5 w-full'></div>
-					))}
-				</div>
-
-				{/* Chart bars */}
-				<div className='absolute left-12 right-0 bottom-0 h-full flex items-end justify-between'>
-					{chartData.map((data, index) => (
-						<div key={index} className='flex items-end justify-center'>
-							<div className='flex flex-col items-center'>
-								{/* Income bar */}
-								<div
-									className='bg-indigo-500 rounded-sm w-5 mx-1 cursor-pointer'
-									style={{
-										height: `${(data.income / maxValue) * chartHeight}px`,
-									}}
-									onMouseEnter={(e) =>
-										showTooltip(
-											`${data.month} 2020`,
-											data.income,
-											e.clientX,
-											e.clientY
-										)
-									}
-									onMouseLeave={hideTooltip}></div>
-
-								{/* Month label */}
-								<div className='text-gray-400 mt-2'>{data.month}</div>
-							</div>
-
-							{/* Outcome bar */}
-							<div
-								className='bg-cyan-400 rounded-sm w-5 mx-1 cursor-pointer'
-								style={{
-									height: `${(data.outcome / maxValue) * chartHeight}px`,
-								}}
-								onMouseEnter={(e) =>
-									showTooltip(
-										`${data.month} 2020`,
-										data.outcome,
-										e.clientX,
-										e.clientY
-									)
-								}
-								onMouseLeave={hideTooltip}></div>
-						</div>
-					))}
-				</div>
-
-				{/* Tooltip */}
-				{tooltip.show && (
-					<div
-						className='absolute bg-indigo-800 p-2 rounded shadow-lg text-white text-sm z-10'
-						style={{ left: `${tooltip.x}px`, top: `${tooltip.y - 60}px` }}>
-						<div className='font-bold'>{tooltip.month}</div>
-						<div>${tooltip.value.toFixed(2)}</div>
-					</div>
-				)}
+			<div className='h-64 w-full mt-4 '>
+				<ResponsiveContainer width='100%' height='100%'>
+					<BarChart
+						data={data}
+						margin={{ top: 10, right: 30, left: 5, bottom: 20 }}
+						barGap={7}
+						barSize={6}
+						onMouseMove={(data) => {
+							if (data.activePayload) {
+								setActiveTooltip({
+									payload: data.activePayload,
+									label: data.activeLabel,
+								});
+							}
+						}}
+						onMouseLeave={() => setActiveTooltip(null)}>
+						<CartesianGrid
+							strokeDasharray='3 3'
+							vertical={false}
+							stroke='#444'
+							strokeOpacity={0.5}
+						/>
+						<XAxis
+							dataKey='month'
+							axisLine={false}
+							tickLine={false}
+							tick={{ fill: "#9CA3AF", fontSize: 14 }}
+							dy={10}
+						/>
+						<YAxis
+							axisLine={false}
+							tickLine={false}
+							tick={{ fill: "#9CA3AF", fontSize: 14 }}
+							tickFormatter={formatYAxis}
+							domain={[10000, 50000]}
+							ticks={[10000, 20000, 30000, 40000, 50000]}
+						/>
+						<Tooltip
+							content={<CustomTooltip />}
+							cursor={false}
+							wrapperStyle={{ outline: "none", zIndex: 100 }}
+						/>
+						<Bar dataKey='outcome' fill='#64CFF6' radius={[2, 2, 0, 0]} />
+						<Bar dataKey='income' fill='#5A51D4' radius={[2, 2, 0, 0]} />
+					</BarChart>
+				</ResponsiveContainer>
 			</div>
 		</div>
 	);
