@@ -167,7 +167,7 @@ const RecentTransactions = () => {
 
 			<Table>
 				<TableHeader>
-					<TableRow className='text-[#AEABD8] '>
+					<TableRow className='text-[#AEABD8] border-none '>
 						<TableHead className=' font-normal w-1/3'>Name</TableHead>
 						<TableHead className=' font-normal w-1/4'>Date</TableHead>
 						<TableHead className=' font-normal w-1/4'>Amount</TableHead>
