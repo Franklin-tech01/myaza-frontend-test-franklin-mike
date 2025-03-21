@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 type Option<T> = T & {
 	isUnselectedable?: boolean;
 };

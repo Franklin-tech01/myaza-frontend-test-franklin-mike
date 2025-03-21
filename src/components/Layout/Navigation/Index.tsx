@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Icons from "@/components/icons";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -9,7 +10,6 @@ import Image from "next/image";
 const Navigation = () => {
 	const pathname = usePathname();
 
-	// Define the navigation links
 	const links = [
 		{
 			name: "Dashboard",
@@ -72,7 +72,6 @@ const Navigation = () => {
 	return (
 		<nav className='w-[294px] h-screen fixed bg-[#1D1D41]  px-6'>
 			<div className='flex flex-col justify-between h-full'>
-				{/* Navigation Links */}
 				<ul className='mt-10  space-y-2'>
 					<div className='px-6'>
 						<Link href='/dashboard'>
@@ -86,7 +85,8 @@ const Navigation = () => {
 							links.findIndex((item) => item.name === "Help Centre") - 1;
 
 						return (
-							<>
+							<React.Fragment key={link.name}>
+								{/* Navigation Links */}
 								<li key={link.name}>
 									<Link
 										href={link.to}
@@ -109,12 +109,11 @@ const Navigation = () => {
 								{isSeparator && (
 									<hr className='border-t border-[#2F2F54] my-3 mx-6' />
 								)}
-							</>
+							</React.Fragment>
 						);
 					})}
 				</ul>
 
-				{/* User Profile Section */}
 				<div className='px-6 pb-6'>
 					<div className='flex items-center space-x-4'>
 						<div className='w-10 h-10 bg-[#CBC8FF] rounded-full flex items-center justify-center'>

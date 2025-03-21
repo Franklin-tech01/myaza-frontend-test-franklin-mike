@@ -1,4 +1,5 @@
 import { ValidationRules } from "@/components/global/Input";
+import { JSX } from "react";
 
 /**
  * Represents the props for an input component.

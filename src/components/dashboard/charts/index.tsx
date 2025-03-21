@@ -20,7 +20,6 @@ const AnalyticsChart = () => {
 
 	const [activeTooltip, setActiveTooltip] = useState<TooltipState>(null);
 
-	// Chart data with precise values matching the image
 	const data = [
 		{ month: "Jan", income: 35000, outcome: 25000 },
 		{ month: "Feb", income: 26000, outcome: 33000 },
@@ -32,7 +31,6 @@ const AnalyticsChart = () => {
 		{ month: "Aug", income: 22000, outcome: 27000 },
 	];
 
-	// Custom tooltip component
 	const CustomTooltip = ({
 		active,
 		payload,
@@ -53,7 +51,6 @@ const AnalyticsChart = () => {
 		return null;
 	};
 
-	// Format y-axis ticks
 	const formatYAxis = (value: number) => {
 		return `${value / 1000}K`;
 	};
@@ -62,7 +59,6 @@ const AnalyticsChart = () => {
 		<div
 			className='w-full'
 			style={{
-				// width: "588px",
 				height: "341px",
 				borderRadius: "16px",
 				overflow: "hidden",
@@ -105,7 +101,7 @@ const AnalyticsChart = () => {
 							if (data?.activePayload?.length) {
 								setActiveTooltip({
 									payload: data.activePayload,
-									label: data.activeLabel ?? "", // Ensure label is always a string
+									label: data.activeLabel ?? "",
 								});
 							}
 						}}

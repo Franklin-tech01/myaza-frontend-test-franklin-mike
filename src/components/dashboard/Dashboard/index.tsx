@@ -23,30 +23,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-// import AnalyticsChart from "../charts";
-// import Transaction from "../transaction";
-// import RecentTransaction from "../recent-transaction";
-// import MyCard from "../user-card";
-// // import ActivityChart from "../activity"; // New activity component
-
-// const Dashboard = () => {
-// 	return (
-// 		<div className='grid lg:grid-cols-2 lg:gap-[40px] max-lg:space-y-4 p-4 '>
-// 			{/* Left Section */}
-// 			<div className='lg:col-span-1 '>
-// 				<Transaction />
-// 				<AnalyticsChart />
-// 				<RecentTransaction />
-// 			</div>
-
-// 			{/* Right Section */}
-// 			<div className='lg:col-span-1'>
-// 				<MyCard />
-// 				{/* <ActivityChart /> */}
-// 			</div>
-// 		</div>
-// 	);
-// };
-
-// export default Dashboard;

@@ -2,12 +2,9 @@
 
 import Input from "@/components/global/Input";
 import Icons from "@/components/icons";
-
-// import { useState } from "react";
-// import { FormProvider, useForm } from "react-hook-form";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { usePathname } from "next/navigation"; // Import usePathname
+import { usePathname } from "next/navigation";
 
 const Header = () => {
 	const methods = useForm({
@@ -22,9 +19,8 @@ const Header = () => {
 		watch,
 	} = methods;
 
-	const pathname = usePathname(); // Get the current path
+	const pathname = usePathname();
 
-	// Define the mapping for paths
 	const routeConfig = {
 		"/dashboard": {
 			title: "Welcome Back, Ali 👋",
@@ -34,10 +30,9 @@ const Header = () => {
 			title: "Wallet",
 			subText: "Manage all your wallets from here.",
 		},
-		// Add more routes as needed
 	} as const;
 
-	type RouteConfigKeys = keyof typeof routeConfig; // Define RouteConfigKeys as the keys of routeConfig
+	type RouteConfigKeys = keyof typeof routeConfig;
 
 	const currentRoute = routeConfig[pathname as RouteConfigKeys] || {
 		title: "Page Not Found",

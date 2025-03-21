@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Testimonial data
 const testimonials = [
 	{
 		id: 1,
@@ -54,34 +53,23 @@ export const TestimonialCarousel = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isAutoPlay, setIsAutoPlay] = useState(true);
 
-	// Auto-play functionality
 	useEffect(() => {
 		let interval: NodeJS.Timeout;
 		if (isAutoPlay) {
 			interval = setInterval(() => {
 				setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-			}, 5000); // Change testimonial every 5 seconds
+			}, 5000);
 		}
 		return () => clearInterval(interval);
 	}, [isAutoPlay]);
 
-	// Pause auto-play on hover
 	const handleMouseEnter = () => setIsAutoPlay(false);
 	const handleMouseLeave = () => setIsAutoPlay(true);
-
-	// Manual navigation
-	// interface Testimonial {
-	//     id: number;
-	//     rating: number;
-	//     quote: string;
-	//     name: string;
-	//     location: string;
-	// }
 
 	const handleDotClick = (index: number): void => {
 		setCurrentIndex(index);
 		setIsAutoPlay(false);
-		setTimeout(() => setIsAutoPlay(true), 10000); // Resume auto-play after 10 seconds
+		setTimeout(() => setIsAutoPlay(true), 10000);
 	};
 
 	return (

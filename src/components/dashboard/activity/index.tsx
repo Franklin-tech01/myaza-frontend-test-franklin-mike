@@ -5,7 +5,6 @@ import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import Button from "@/components/global/Button";
 
 const Activity = () => {
-	// Data for the pie chart
 	const data = [
 		{ name: "Daily payment", value: 50, color: "#6359E9" },
 		{ name: "Hobby", value: 35, color: "#64CFF6" },
@@ -26,7 +25,7 @@ const Activity = () => {
 			<div className='flex justify-center items-center mt-10 mb-7'>
 				<PieChart width={300} className='!border-none scale-150' height={100}>
 					<Tooltip
-						cursor={false} // Hides the hover effect on the chart
+						cursor={false}
 						contentStyle={{
 							backgroundColor: "#fff",
 							color: "#000",

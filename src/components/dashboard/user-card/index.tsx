@@ -1,6 +1,5 @@
 import VirtualCard from "@/components/global/cards";
 import Button from "@/components/global/Button";
-import { div } from "framer-motion/client";
 
 const MyCard = () => {
 	return (
