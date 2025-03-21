@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { PieChart, Pie, Cell } from "recharts";
+import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import Button from "@/components/global/Button";
 
 const Activity = () => {
@@ -25,6 +25,15 @@ const Activity = () => {
 
 			<div className='flex justify-center items-center mt-10 mb-7'>
 				<PieChart width={300} className='!border-none scale-150' height={100}>
+					<Tooltip
+						cursor={false} // Hides the hover effect on the chart
+						contentStyle={{
+							backgroundColor: "#fff",
+							color: "#000",
+							borderRadius: "8px",
+							padding: "6px",
+						}}
+					/>
 					<Pie
 						data={data}
 						cx='50%'
@@ -33,7 +42,8 @@ const Activity = () => {
 						endAngle={0}
 						innerRadius={60}
 						outerRadius={80}
-						paddingAngle={0}
+						cornerRadius={5}
+						stroke='none'
 						dataKey='value'>
 						{data.map((entry, index) => (
 							<Cell className='' key={`cell-${index}`} fill={entry.color} />

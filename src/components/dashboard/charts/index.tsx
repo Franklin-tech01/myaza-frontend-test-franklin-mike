@@ -13,7 +13,12 @@ import {
 
 const AnalyticsChart = () => {
 	const [selectedYear, setSelectedYear] = useState("2020");
-	const [activeTooltip, setActiveTooltip] = useState(null);
+	type TooltipState = {
+		payload: any[];
+		label: string;
+	} | null;
+
+	const [activeTooltip, setActiveTooltip] = useState<TooltipState>(null);
 
 	// Chart data with precise values matching the image
 	const data = [
@@ -97,10 +102,10 @@ const AnalyticsChart = () => {
 						barGap={7}
 						barSize={6}
 						onMouseMove={(data) => {
-							if (data.activePayload) {
+							if (data?.activePayload?.length) {
 								setActiveTooltip({
 									payload: data.activePayload,
-									label: data.activeLabel,
+									label: data.activeLabel ?? "", // Ensure label is always a string
 								});
 							}
 						}}
