@@ -10,6 +10,12 @@ import Search from "/public/assets/icons/search.svg";
 import Dropdown from "/public/assets/icons/dropdown.svg";
 import Arrowup from "/public/assets/icons/arrowup.svg";
 import Arrowdown from "/public/assets/icons/arrowdown.svg";
+import Adobeicon from "/public/assets/icons/adobe.svg";
+import MasterCard from "/public/assets/icons/mastercard.svg";
+import AmericanExpress from "/public/assets/icons/american.svg";
+import Master from "/public/assets/icons/master.svg";
+import Visa from "/public/assets/icons/visa.svg";
+import VisaCard from "/public/assets/icons/visa.svg";
 
 const Icons = {
 	Logo,
@@ -24,6 +30,12 @@ const Icons = {
 	Dropdown,
 	Arrowup,
 	Arrowdown,
+	Adobeicon,
+	MasterCard,
+	AmericanExpress,
+	Master,
+	Visa,
+	VisaCard,
 };
 
 export default Icons;

@@ -89,14 +89,12 @@ const Navigation = () => {
 
 	return (
 		<>
-			<nav className='hidden lg:block w-[278px] h-screen fixed bg-[#1D1D41] pt-5'>
-				<Link
-					href='/dashboard'
-					className='flex justify-center items-center pb-6'>
-					<Icons.Logo className='w-[99px] h-[74px]' />
-				</Link>
+			<nav className='hidden lg:block w-[294px] z-50 h-screen fixed bg-[#1D1D41] pt-5'>
 				<div className='flex flex-col h-[calc(100%-198px)] justify-between'>
 					<ul className='px-2.5 space-y-2 mt-8'>
+						<Link href='/dashboard' className=''>
+							<Icons.Logo className='w-[99px] h-[74px]' />
+						</Link>
 						{links.map((link) => {
 							return (
 								<li key={link.name}>

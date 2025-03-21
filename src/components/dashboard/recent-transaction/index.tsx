@@ -108,6 +108,7 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
+import Icons from "@/components/icons";
 import Link from "next/link";
 
 const RecentTransactions = () => {
@@ -118,7 +119,7 @@ const RecentTransactions = () => {
 			date: "Sat,20 Apr 2020",
 			amount: "$80.09",
 			status: "Deposited",
-			logo: "Ae",
+			logo: <Icons.Adobeicon />,
 		},
 		{
 			id: 2,
@@ -126,7 +127,7 @@ const RecentTransactions = () => {
 			date: "Sat,20 Apr 2020",
 			amount: "$80.09",
 			status: "Deposited",
-			logo: "M",
+			logo: <Icons.Adobeicon />,
 		},
 		{
 			id: 3,
@@ -134,7 +135,7 @@ const RecentTransactions = () => {
 			date: "Sat,20 Apr 2020",
 			amount: "$80.09",
 			status: "Deposited",
-			logo: "L",
+			logo: <Icons.Adobeicon />,
 		},
 		{
 			id: 4,
@@ -142,7 +143,7 @@ const RecentTransactions = () => {
 			date: "Sat,20 Apr 2020",
 			amount: "$80.09",
 			status: "Deposited",
-			logo: "Ae",
+			logo: <Icons.Adobeicon />,
 		},
 		{
 			id: 5,
@@ -150,55 +151,60 @@ const RecentTransactions = () => {
 			date: "Sat,20 Apr 2020",
 			amount: "$80.09",
 			status: "Deposited",
-			logo: "L",
+			logo: <Icons.Adobeicon />,
 		},
 	];
 
 	return (
-		<div className='bg-[#1D1D41] p-6 mt-10 rounded-2xl w-full max-w-4xl'>
-			<div className='flex justify-between items-center mb-6'>
+		<div className='bg-[#1D1D41] p-6  rounded-2xl w-full '>
+			<div className='flex  justify-between items-center '>
 				<h2 className='text-white text-3xl font-bold'>Recent transactions</h2>
 				<Link
 					href={"/wallet"}
-					className='text-indigo-300 hover:text-indigo-200 text-sm'>
+					className='text-[#8C89B4] hover:text-indigo-200 text-sm'>
 					See All
 				</Link>
 			</div>
 
 			<Table>
 				<TableHeader>
-					<TableRow className='text-[#AEABD8] border-none '>
-						<TableHead className=' font-normal w-1/3'>Name</TableHead>
-						<TableHead className=' font-normal w-1/4'>Date</TableHead>
-						<TableHead className=' font-normal w-1/4'>Amount</TableHead>
-						<TableHead className=' font-normal w-1/6'>Status</TableHead>
+					<TableRow className=' noHover  p-0 text-[14px] border-none '>
+						<TableHead className=' text-[#AEABD8] font-normal w-1/3'>
+							Name
+						</TableHead>
+						<TableHead className=' !text-[#AEABD8] font-normal w-1/4'>
+							Date
+						</TableHead>
+						<TableHead className=' !text-[#AEABD8] font-normal w-1/4'>
+							Amount
+						</TableHead>
+						<TableHead className='!text-[#AEABD8] font-normal w-1/6'>
+							Status
+						</TableHead>
 					</TableRow>
 				</TableHeader>
 				<TableBody>
 					{transactions.map((transaction) => (
 						<TableRow
 							key={transaction.id}
-							className=' border-gray-700 hover:bg-transparent'>
+							className=' w-[540px] border-[#2D2B4D] hover:bg-transparent'>
 							<TableCell className='py-4 px-0'>
 								<div className='flex items-center'>
 									<div
-										className={`w-10 h-10 rounded-full flex items-center justify-center mr-3 text-white
-                    ${
-											transaction.name === "Adobe After Effect"
-												? "bg-indigo-800"
-												: transaction.name === "McDonald's"
-												? "bg-yellow-500"
-												: "bg-red-700"
-										}`}>
+										className={`w-6 h-6 mr-1 rounded-full flex items-center justify-center `}>
 										{transaction.logo}
 									</div>
-									<span className='text-white'>{transaction.name}</span>
+									<span className='text-white text-sm'>{transaction.name}</span>
 								</div>
 							</TableCell>
-							<TableCell className='text-white'>{transaction.date}</TableCell>
-							<TableCell className='text-white'>{transaction.amount}</TableCell>
+							<TableCell className='text-white text-sm'>
+								{transaction.date}
+							</TableCell>
+							<TableCell className='text-white text-sm'>
+								{transaction.amount}
+							</TableCell>
 							<TableCell>
-								<span className='px-3 py-1 bg-green-900/50 text-green-400 rounded-md text-sm'>
+								<span className='px-3 py-1 bg-[#1A3527] text-[#02B15A] rounded-[8px] text-sm'>
 									{transaction.status}
 								</span>
 							</TableCell>

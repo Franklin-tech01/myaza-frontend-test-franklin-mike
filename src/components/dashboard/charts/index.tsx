@@ -57,14 +57,14 @@ const AnalyticsChart = () => {
 		<div
 			className='w-full'
 			style={{
-				width: "588px",
+				// width: "588px",
 				height: "341px",
 				borderRadius: "16px",
 				overflow: "hidden",
 				backgroundColor: "#1D1D41",
 			}}>
 			<div className='flex justify-between items-center px-8 pt-6'>
-				<div className='flex w-[540px] justify-between items-center space-x-6'>
+				<div className='flex w-full justify-between items-center space-x-6'>
 					<h2 className='text-2xl font-bold text-white'>Analytics</h2>
 					<div className=' flex items-center space-x-4'>
 						<div className='flex items-center'>

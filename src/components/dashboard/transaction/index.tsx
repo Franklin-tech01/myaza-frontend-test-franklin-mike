@@ -1,5 +1,4 @@
 import Icons from "@/components/icons";
-import { title } from "process";
 
 const TransactionData = [
 	{
@@ -19,14 +18,14 @@ const TransactionData = [
 const Transaction = () => {
 	return (
 		<div>
-			<div className='flex justify-between mb-10 mt-1  items-center'>
+			<div className='flex justify-between gap-6 items-center'>
 				{TransactionData.map((item, index) => (
 					<div
 						key={index}
-						className='flex  relative justify-between bg-[#1D1D41] rounded-[18px] w-[282px] h-[84px] p-4 items-center'>
+						className='flex justify-between bg-[#1D1D41] rounded-[18px] w-full h-[84px] p-4 items-center'>
 						<div className='flex items-center'>
 							<div
-								className={`mr-3  size-10 flex  rounded-lg ${
+								className={`mr-3 size-10 flex rounded-lg ${
 									item.title === "Total Income"
 										? "bg-[#64CFF6]"
 										: "bg-[#6359E9] "
@@ -39,7 +38,7 @@ const Transaction = () => {
 							</div>
 						</div>
 						<div
-							className={`w-[48px] absolute bottom-0 right-0  m-4 text-xs rounded-xl h-5 p-[3px_6px]  ${
+							className={`w-[48px] text-xs rounded-xl h-5 p-[3px_6px] flex items-center justify-center ${
 								item.title === "Total Income"
 									? "bg-[#193345] text-[#02B15A]"
 									: "bg-[#3C193B] text-[#E41414]"
