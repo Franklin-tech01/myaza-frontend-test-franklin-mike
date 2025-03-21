@@ -4,6 +4,7 @@ import Icons from "@/components/icons";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { Plus } from "lucide-react";
 // import NavigationLink from "../NavigationLink";÷
 
 const Navigation = () => {
@@ -135,27 +136,53 @@ const Navigation = () => {
 					</button>
 				</div>
 			</nav>
-			{/* <div className='relative'>
+			<div className='relative'>
 				<nav className='lg:hidden bg-[#173E62] w-screen fixed z-50 bottom-0 left-0 right-0'>
 					<div className='flex items-center space-x-8 justify-between py-2'>
 						<ul className='flex items-center'>
 							{mobileLinks.slice(0, 2).map((link) => {
-								return <NavigationLink key={link.name} link={link} />;
+								return (
+									<li key={link.name}>
+										<Link
+											href={link.to}
+											className='block transition-all hover:bg-[#CBC8FF] hover:text-[#141332] rounded-lg w-full text-white px-4 py-3'>
+											<div className='flex items-center space-x-6'>
+												<div className='bg-none transition-all'>
+													{link.icon}
+												</div>
+												<div>{link.name}</div>
+											</div>
+										</Link>
+									</li>
+								);
 							})}
 						</ul>
 						<ul className='flex items-center'>
 							{mobileLinks.slice(2, 4).map((link) => {
-								return <NavigationLink key={link.name} link={link} />;
+								return (
+									<li key={link.name}>
+										<Link
+											href={link.to}
+											className='block transition-all hover:bg-[#CBC8FF] hover:text-[#141332] rounded-lg w-full text-white px-4 py-3'>
+											<div className='flex items-center space-x-6'>
+												<div className='bg-none transition-all'>
+													{link.icon}
+												</div>
+												<div>{link.name}</div>
+											</div>
+										</Link>
+									</li>
+								);
 							})}
 						</ul>
 					</div>
 					<div className='flex justify-center items-center absolute -top-1/2 left-1/2 transform -translate-x-1/2 size-16 rounded-full bg-white'>
 						<div className='flex justify-center items-center shadow-2xl border-2 border-gray-100 size-14 rounded-full'>
-							<Icons.PlusIcon className='fill-primary' />
+							<Plus />
 						</div>
 					</div>
 				</nav>
-			</div> */}
+			</div>
 		</>
 	);
 };

@@ -2,7 +2,6 @@
 
 import React, { JSX, ReactNode, useState } from "react";
 import Icons from "@/components/icons";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const VirtualCardCarousel = () => {
@@ -39,16 +38,13 @@ const VirtualCardCarousel = () => {
 		setCurrentIndex(index);
 	};
 
-	// Enable swipe functionality for mobile
 	const handleDragEnd = (
 		event: MouseEvent | TouchEvent | PointerEvent,
 		info: { offset: { x: number } }
 	): void => {
 		if (info.offset.x > 100) {
-			// Swiped right
 			setCurrentIndex((prev) => (prev === 0 ? cards.length - 1 : prev - 1));
 		} else if (info.offset.x < -100) {
-			// Swiped left
 			setCurrentIndex((prev) => (prev === cards.length - 1 ? 0 : prev + 1));
 		}
 	};
@@ -85,7 +81,6 @@ const VirtualCardCarousel = () => {
 					className='rounded-3xl overflow-hidden p-8   flex flex-col justify-between'
 					style={{ background: card.gradient }}>
 					<div className="h-full w-full flex justify-center items-center absolute top-1/2 transform -translate-y-1/2  lg:left-0 bg-[url('/assets/images/mask.png')] bg-cover bg-no-repeat bg-center"></div>
-					{/* Top section */}
 					<div className='flex justify-between items-start'>
 						<div>
 							<p className='text-white/80 text-sm font-light'>
@@ -98,7 +93,6 @@ const VirtualCardCarousel = () => {
 						<div className='flex z-50 opacity-100'>{card.icon}</div>
 					</div>
 
-					{/* Bottom section */}
 					<div className='flex justify-between items-center mt-8'>
 						<p className='text-white text-sm '>{card.cardNumber}</p>
 						<p className='text-white text-sm'>{card.expiry}</p>
@@ -118,7 +112,6 @@ const VirtualCardCarousel = () => {
 				</AnimatePresence>
 			</div>
 
-			{/* Pagination dots - exactly matching the UI */}
 			<div className='flex justify-center gap-1 '>
 				{cards.map((_, index) => (
 					<motion.button

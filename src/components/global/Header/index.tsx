@@ -45,7 +45,7 @@ const Header = () => {
 	};
 	return (
 		<>
-			<header className='flex p-10 bg-[#141332] justify-between items-center sticky top-0 w-full  z-0'>
+			<header className='flex p-10 bg-[#141332] justify-between items-center sticky top-0 w-full  z-[1000]'>
 				<div className='mb-4 lg:mb-0'>
 					<header className=''>
 						<h1 className='text-2xl text-white font-bold'>
