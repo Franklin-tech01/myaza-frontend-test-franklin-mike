@@ -3,187 +3,136 @@
 import Icons from "@/components/icons";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { Plus } from "lucide-react";
-// import NavigationLink from "../NavigationLink";÷
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const Navigation = () => {
 	const pathname = usePathname();
 
-	const router = useRouter();
-
+	// Define the navigation links
 	const links = [
 		{
 			name: "Dashboard",
 			to: "/dashboard",
-			icon: <Icons.Dashboard className='fill-inherit' />,
-		},
-		{
-			name: "Wallet",
-			to: "/wallet",
-			icon: <Icons.Wallet className='fill-inherit' />,
-		},
-		{
-			name: "Analytics",
-			to: "/analytics",
-			icon: <Icons.Analytics className='fill-inherit' />,
-		},
-		{
-			name: "account",
-			to: "/account",
-			icon: <Icons.User className='fill-inherit' />,
-		},
-		{
-			name: "Settings",
-			to: "/settings",
-			icon: <Icons.Settings className='fill-inherit' />,
-		},
-		{
-			name: "Help",
-			to: "/help",
-			icon: <Icons.Help className='fill-inherit' />,
-		},
-		{
-			name: "Dark",
-			to: "/dark",
-			icon: <Icons.Dark className='fill-inherit' />,
-		},
-	];
-
-	const mobileLinks = [
-		{
-			name: "Dashboard",
-			to: "/dashboard",
-			icon: <Icons.Dashboard className='fill-inherit' />,
-		},
-		{
-			name: "Wallet",
-			to: "/wallet",
-			icon: <Icons.Wallet className='fill-inherit' />,
+			icon: {
+				active: <Icons.DashboardDark />,
+				inactive: <Icons.Dashboard />,
+			},
 		},
 		{
 			name: "Analytics",
 			to: "/analytics",
-			icon: <Icons.Analytics className='fill-inherit' />,
+			icon: {
+				active: <Icons.Analytics />,
+				inactive: <Icons.Analytics />,
+			},
 		},
 		{
-			name: "account",
+			name: "My Wallet",
+			to: "/wallet",
+			icon: {
+				active: <Icons.WalletDark />,
+				inactive: <Icons.Wallet />,
+			},
+		},
+		{
+			name: "Accounts",
 			to: "/account",
-			icon: <Icons.User className='fill-inherit' />,
+			icon: {
+				active: <Icons.User />,
+				inactive: <Icons.User />,
+			},
 		},
 		{
 			name: "Settings",
 			to: "/settings",
-			icon: <Icons.Settings className='fill-inherit' />,
+			icon: {
+				active: <Icons.Settings />,
+				inactive: <Icons.Settings />,
+			},
 		},
 		{
-			name: "Help",
+			name: "Help Centre",
 			to: "/help",
-			icon: <Icons.Help className='fill-inherit' />,
+			icon: {
+				active: <Icons.Help />,
+				inactive: <Icons.Help />,
+			},
 		},
 		{
-			name: "Dark",
+			name: "Dark Theme",
 			to: "/dark",
-			icon: <Icons.Dark className='fill-inherit' />,
+			icon: {
+				active: <Icons.Dark />,
+				inactive: <Icons.Dark />,
+			},
 		},
 	];
 
 	return (
-		<>
-			<nav className='hidden lg:block w-[294px] z-50 h-screen fixed bg-[#1D1D41] pt-5'>
-				<div className='flex flex-col h-[calc(100%-198px)] justify-between'>
-					<ul className='px-2.5 space-y-2 mt-8'>
-						<Link href='/dashboard' className=''>
+		<nav className='w-[294px] h-screen fixed bg-[#1D1D41]  px-6'>
+			<div className='flex flex-col justify-between h-full'>
+				{/* Navigation Links */}
+				<ul className='mt-10  space-y-2'>
+					<div className='px-6'>
+						<Link href='/dashboard'>
 							<Icons.Logo className='w-[99px] h-[74px]' />
 						</Link>
-						{links.map((link) => {
-							return (
+					</div>
+					{links.map((link, index) => {
+						const isActive = pathname === link.to;
+						const isSeparator =
+							index ===
+							links.findIndex((item) => item.name === "Help Centre") - 1;
+
+						return (
+							<>
 								<li key={link.name}>
-									<Link href={link.to}>
-										<Link
-											href={""}
-											className='block transition-all  hover:bg-[#CBC8FF] hover:text-[#141332] rounded-lg w-full text-white px-4 py-3'>
-											<div className='flex items-center space-x-6'>
-												<div className={cn(" bg-none transition-all", {})}>
-													{link.icon}
-												</div>
-												<div className=''>{link.name}</div>
-											</div>
-											<div></div>
-										</Link>
+									<Link
+										href={link.to}
+										className={cn(
+											"flex items-center px-6 py-3 rounded-lg transition-all group",
+											isActive
+												? "bg-[#CBC8FF] text-[#141332]"
+												: "text-white hover:bg-[#CBC8FF] hover:text-[#141332]"
+										)}>
+										{/* Icon */}
+										<div className='mr-4'>
+											{isActive ? link.icon.active : link.icon.inactive}
+										</div>
+										{/* Text */}
+										<span className='font-medium'>{link.name}</span>
 									</Link>
 								</li>
-							);
-						})}
-					</ul>
-				</div>
 
-				<div className='px-2.5'>
-					<button
-						onClick={() => {
-							router.push("/auth/login");
-						}}
-						className={cn(
-							"block transition-all rounded-lg w-full text-white px-4 py-3"
-						)}>
-						<div className='flex items-center space-x-6'>
-							<div className={cn("fill-white transition-all", {})}>
-								{/* <Icons.LogoutIcon className='fill-inherit' /> */}
-							</div>
-							<div className=''>Logout</div>
+								{/* Separator Line */}
+								{isSeparator && (
+									<hr className='border-t border-[#2F2F54] my-3 mx-6' />
+								)}
+							</>
+						);
+					})}
+				</ul>
+
+				{/* User Profile Section */}
+				<div className='px-6 pb-6'>
+					<div className='flex items-center space-x-4'>
+						<div className='w-10 h-10 bg-[#CBC8FF] rounded-full flex items-center justify-center'>
+							<Image
+								src='/assets/icons/admin.svg'
+								width={40}
+								height={40}
+								alt='user-avatar'
+							/>
 						</div>
-						<div></div>
-					</button>
+						<div>
+							<p className='text-white font-medium'>Ali Riaz</p>
+							<p className='text-sm text-[#C1C1C1]'>Web Developer</p>
+						</div>
+					</div>
 				</div>
-			</nav>
-			<div className='relative'>
-				<nav className='lg:hidden bg-[#173E62] w-screen fixed z-50 bottom-0 left-0 right-0'>
-					<div className='flex items-center space-x-8 justify-between py-2'>
-						<ul className='flex items-center'>
-							{mobileLinks.slice(0, 2).map((link) => {
-								return (
-									<li key={link.name}>
-										<Link
-											href={link.to}
-											className='block transition-all hover:bg-[#CBC8FF] hover:text-[#141332] rounded-lg w-full text-white px-4 py-3'>
-											<div className='flex items-center space-x-6'>
-												<div className='bg-none transition-all'>
-													{link.icon}
-												</div>
-												<div>{link.name}</div>
-											</div>
-										</Link>
-									</li>
-								);
-							})}
-						</ul>
-						<ul className='flex items-center'>
-							{mobileLinks.slice(2, 4).map((link) => {
-								return (
-									<li key={link.name}>
-										<Link
-											href={link.to}
-											className='block transition-all hover:bg-[#CBC8FF] hover:text-[#141332] rounded-lg w-full text-white px-4 py-3'>
-											<div className='flex items-center space-x-6'>
-												<div className='bg-none transition-all'>
-													{link.icon}
-												</div>
-												<div>{link.name}</div>
-											</div>
-										</Link>
-									</li>
-								);
-							})}
-						</ul>
-					</div>
-					<div className='flex justify-center items-center absolute -top-1/2 left-1/2 transform -translate-x-1/2 size-16 rounded-full bg-white'>
-						<div className='flex justify-center items-center shadow-2xl border-2 border-gray-100 size-14 rounded-full'>
-							<Plus />
-						</div>
-					</div>
-				</nav>
 			</div>
-		</>
+		</nav>
 	);
 };
 

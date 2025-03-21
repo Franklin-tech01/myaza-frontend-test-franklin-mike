@@ -55,7 +55,7 @@ const RecentTransactions = () => {
 	];
 
 	return (
-		<div className='bg-[#1D1D41] p-6  rounded-2xl w-full '>
+		<div className='bg-[#1D1D41] p-6  min-h-full rounded-2xl w-full '>
 			<div className='flex  justify-between items-center '>
 				<h2 className='text-white text-3xl font-bold'>Recent transactions</h2>
 				<Link

@@ -16,6 +16,11 @@ import AmericanExpress from "/public/assets/icons/american.svg";
 import Master from "/public/assets/icons/master.svg";
 import Visa from "/public/assets/icons/visa.svg";
 import VisaCard from "/public/assets/icons/visa.svg";
+import Naira from "/public/assets/icons/nigeria.svg";
+import Usd from "/public/assets/icons/usd.svg";
+import Euro from "/public/assets/icons/uk.svg";
+import WalletDark from "/public/assets/icons/walletdark.svg";
+import DashboardDark from "/public/assets/icons/dashboarddark.svg";
 
 const Icons = {
 	Logo,
@@ -36,6 +41,11 @@ const Icons = {
 	Master,
 	Visa,
 	VisaCard,
+	Naira,
+	Usd,
+	Euro,
+	WalletDark,
+	DashboardDark,
 };
 
 export default Icons;

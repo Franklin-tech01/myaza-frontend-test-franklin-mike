@@ -1,5 +1,10 @@
 import Navigation from "@/components/Layout/Navigation/Index";
 import Header from "@/components/global/Header";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "uifry",
+};
 
 type LayoutProps = {
 	children: React.ReactNode;
