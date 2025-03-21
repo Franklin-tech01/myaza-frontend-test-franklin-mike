@@ -22,14 +22,12 @@ const Activity = () => {
 					<option className=''>Month</option>
 					<option>Week</option>
 					<option>Year</option>
-					{/* <span className=' text-[#8C89B4] text-xs'>{selectedYear}</span> */}
-					{/* <Icons.Dropdown /> */}
 				</select>
 			</div>
 
 			{/* Chart */}
-			<div className='flex justify-center items-center mb-6'>
-				<PieChart width={300} height={100}>
+			<div className='flex justify-center items-center mt-10 mb-7'>
+				<PieChart width={300} className='scale-150' height={100}>
 					<Pie
 						data={data}
 						cx='50%'
@@ -51,7 +49,7 @@ const Activity = () => {
 			</div>
 
 			{/* Legend */}
-			<div className='flex justify-around text-sm text-white'>
+			<div className='flex justify-around mb-[-10%] text-sm text-white'>
 				<div className='text-center'>
 					<div className='flex items-center justify-center gap-2'>
 						<span className='block w-2 h-2 rounded-full bg-[#6359E9]' />
@@ -69,7 +67,7 @@ const Activity = () => {
 			</div>
 
 			{/* Button */}
-			<div className=' flex items-center justify-center pt-16 mb-0 xl:mb-[-45px]'>
+			<div className=' flex items-center justify-center pt-20 mb-0 xl:mb-[-80px]'>
 				<Button
 					type='submit'
 					className='w-full xl:w-[280px] py-4 border border-[#CBC8FF] bg-[#1D1D41] cursor-pointer !outline-none text-[#CBC8FF] rounded-[8px] font-bold'>
