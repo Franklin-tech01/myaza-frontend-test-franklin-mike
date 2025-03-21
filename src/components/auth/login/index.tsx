@@ -103,7 +103,7 @@ const Login = () => {
 						alt='Uifry Dashboard Preview'
 						width={920}
 						height={584}
-						className='w-full h-[580px] ml-20  bg-center bg-cover'
+						className='w-full lg:h-[580px]  ml-20  bg-center bg-cover'
 					/>
 				</div>
 			</aside>
