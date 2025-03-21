@@ -7,7 +7,7 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
 	return (
-		<div className='flex w-full min-h-screen bg-[#141332]'>
+		<div className='flex w-full min-w-screen min-h-screen bg-[#141332]'>
 			{/* Sidebar Navigation */}
 			<aside className='w-[293px]  hidden lg:block'>
 				<Navigation />
@@ -21,7 +21,9 @@ const Layout = ({ children }: LayoutProps) => {
 				</header>
 
 				{/* Main Content */}
-				<main className='flex-1 overflow-hidden p-6 sm:p-8'>{children}</main>
+				<main className='flex-1 bg-[#141332] min-w-s overflow-hidden p-6 sm:p-8'>
+					{children}
+				</main>
 			</div>
 		</div>
 	);
