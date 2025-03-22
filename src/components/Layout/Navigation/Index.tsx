@@ -5,7 +5,7 @@ import Icons from "@/components/icons";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
+import UserDropdown from "@/components/global/user-dropdown";
 
 const Navigation = () => {
 	const pathname = usePathname();
@@ -100,22 +100,7 @@ const Navigation = () => {
 						})}
 					</ul>
 
-					<div className='px-6 pb-6'>
-						<div className='flex items-center space-x-4'>
-							<div className='w-10 h-10 bg-[#CBC8FF] rounded-full flex items-center justify-center'>
-								<Image
-									src='/assets/icons/admin.svg'
-									width={40}
-									height={40}
-									alt='user-avatar'
-								/>
-							</div>
-							<div>
-								<p className='text-white font-medium'>Ali Riaz</p>
-								<p className='text-sm text-[#C1C1C1]'>Web Developer</p>
-							</div>
-						</div>
-					</div>
+					<UserDropdown />
 				</div>
 			</nav>
 

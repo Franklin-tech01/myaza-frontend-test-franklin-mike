@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Icons from "@/components/icons";
 import {
 	BarChart,
@@ -13,6 +13,43 @@ import {
 
 const AnalyticsChart = () => {
 	const [selectedYear, setSelectedYear] = useState("2020");
+	const [isOpen, setIsOpen] = useState(false);
+	const dropdownRef = useRef(null);
+
+	// Generate an array of years (current year - 4 to current year)
+	const currentYear = new Date().getFullYear();
+	const years = Array.from({ length: 5 }, (_, i) =>
+		(currentYear - 4 + i).toString()
+	);
+
+	// Toggle dropdown
+	const toggleDropdown = () => {
+		setIsOpen(!isOpen);
+	};
+
+	// Select year and close dropdown
+	const handleSelectYear = (year: string) => {
+		setSelectedYear(year);
+		setIsOpen(false);
+	};
+
+	// Close dropdown when clicking outside
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (
+				dropdownRef.current &&
+				!(dropdownRef.current as HTMLElement).contains(event.target as Node)
+			) {
+				setIsOpen(false);
+			}
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, []);
+
 	type TooltipState = {
 		payload: any[];
 		label: string;
@@ -80,11 +117,34 @@ const AnalyticsChart = () => {
 								Outcome
 							</span>
 						</div>
-						<div className='relative '>
-							<button className='bg-transparent border  gap-1 border-[#8C89B4] rounded-sm px-[8px] py-1 flex items-center'>
-								<span className=' text-[#8C89B4] text-xs'>{selectedYear}</span>
+						<div className='relative' ref={dropdownRef}>
+							<button
+								className='bg-transparent cursor-pointer border gap-1 border-[#8C89B4] rounded-sm px-[8px] py-1 flex items-center'
+								onClick={toggleDropdown}>
+								<span className='text-[#8C89B4] text-xs'>{selectedYear}</span>
 								<Icons.Dropdown />
 							</button>
+
+							{/* Dropdown menu */}
+							{isOpen && (
+								<div className='absolute top-full mt-1 w-20 bg-[#1D1D41] rounded-lg shadow-lg z-10'>
+									<ul className='py-1'>
+										{years.map((year) => (
+											<li key={year}>
+												<button
+													className={`w-full cursor-pointer text-left px-3 py-1 text-xs ${
+														selectedYear === year
+															? "bg-[#CBC8FF] text-[#141332]"
+															: "text-white hover:bg-[#2A2A5A]"
+													}`}
+													onClick={() => handleSelectYear(year)}>
+													{year}
+												</button>
+											</li>
+										))}
+									</ul>
+								</div>
+							)}
 						</div>
 					</div>
 				</div>

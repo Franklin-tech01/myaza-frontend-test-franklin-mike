@@ -23,7 +23,9 @@ import WalletDark from "/public/assets/icons/walletdark.svg";
 import DashboardDark from "/public/assets/icons/dashboarddark.svg";
 import Plus from "/public/assets/icons/plus.svg";
 import More from "/public/assets/icons/more.svg";
-
+import Drop from "/public/assets/icons/drop.svg";
+import Levi from "/public/assets/icons/levi.svg";
+import Mcdonalds from "/public/assets/icons/mcdonalds.svg";
 const Icons = {
 	Logo,
 	Dashboard,
@@ -50,6 +52,9 @@ const Icons = {
 	DashboardDark,
 	Plus,
 	More,
+	Drop,
+	Levi,
+	Mcdonalds,
 };
 
 export default Icons;

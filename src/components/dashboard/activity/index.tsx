@@ -1,10 +1,44 @@
 "use client";
 
 import React from "react";
+import { useState, useRef, useEffect } from "react";
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
+import Icons from "@/components/icons";
 import Button from "@/components/global/Button";
 
 const Activity = () => {
+	const [selectTime, setSelectTime] = useState("Month");
+	const [isOpen, setIsOpen] = useState(false);
+
+	const time = ["month", "week", "year"];
+
+	const dropdownRef = useRef(null);
+
+	const toggleDropdown = () => {
+		setIsOpen(!isOpen);
+	};
+
+	const handleSelectTime = (time: string) => {
+		setSelectTime(time);
+		setIsOpen(false);
+	};
+
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (
+				dropdownRef.current &&
+				!(dropdownRef.current as HTMLElement).contains(event.target as Node)
+			) {
+				setIsOpen(false);
+			}
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, []);
+
 	const data = [
 		{ name: "Daily payment", value: 50, color: "#6359E9" },
 		{ name: "Hobby", value: 35, color: "#64CFF6" },
@@ -15,11 +49,33 @@ const Activity = () => {
 		<div className='bg-[#1D1D41] p-6 rounded-2xl shadow-lg'>
 			<div className='flex justify-between items-center mb-4'>
 				<h2 className='text-2xl text-white font-semibold'>Activity</h2>
-				<select className='bg-transparent text-[#8C89B4] border  gap-1 border-[#8C89B4] rounded-sm px-[8px] py-1 flex items-center'>
-					<option className='text-[#8C89B4]'>Month</option>
-					<option>Week</option>
-					<option>Year</option>
-				</select>
+				<div className='relative' ref={dropdownRef}>
+					<button
+						className='bg-transparent cursor-pointer border gap-1 border-[#8C89B4] rounded-sm px-[8px] py-1 flex items-center'
+						onClick={toggleDropdown}>
+						<span className='text-[#8C89B4] text-xs'>{selectTime}</span>
+						<Icons.Dropdown />
+					</button>
+					{isOpen && (
+						<div className='absolute top-full mt-1 w-20 bg-[#1D1D41] rounded-lg shadow-lg z-10'>
+							<ul className='py-1'>
+								{time.map((times) => (
+									<li key={times}>
+										<button
+											className={`w-full text-left cursor-pointer px-3 py-1 text-xs ${
+												selectTime === times
+													? "bg-[#CBC8FF] text-[#141332]"
+													: "text-white hover:bg-[#2A2A5A]"
+											}`}
+											onClick={() => handleSelectTime(times)}>
+											{times}
+										</button>
+									</li>
+								))}
+							</ul>
+						</div>
+					)}
+				</div>
 			</div>
 
 			<div className='flex justify-center items-center mt-10 mb-7'>

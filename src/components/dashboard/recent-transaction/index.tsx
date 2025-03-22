@@ -26,7 +26,7 @@ const RecentTransactions = () => {
 			date: "Sat,20 Apr 2020",
 			amount: "$80.09",
 			status: "Deposited",
-			logo: <Icons.Adobeicon />,
+			logo: <Icons.Mcdonalds />,
 		},
 		{
 			id: 3,
@@ -34,7 +34,7 @@ const RecentTransactions = () => {
 			date: "Sat,20 Apr 2020",
 			amount: "$80.09",
 			status: "Deposited",
-			logo: <Icons.Adobeicon />,
+			logo: <Icons.Levi />,
 		},
 		{
 			id: 4,
@@ -50,7 +50,7 @@ const RecentTransactions = () => {
 			date: "Sat,20 Apr 2020",
 			amount: "$80.09",
 			status: "Deposited",
-			logo: <Icons.Adobeicon />,
+			logo: <Icons.Levi />,
 		},
 	];
 

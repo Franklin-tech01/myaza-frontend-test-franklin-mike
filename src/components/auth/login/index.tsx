@@ -64,7 +64,7 @@ const Login = () => {
 									name='password'
 									type='password'
 									placeholder='************'
-									className='!bg-[#1D1D41] outline-none border-[#DCD9D9] text-white'
+									className='!bg-[#1D1D41]   outline-none border-[#DCD9D9] text-white'
 									rules={["required"]}
 								/>
 							</div>
