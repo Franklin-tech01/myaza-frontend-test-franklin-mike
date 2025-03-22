@@ -56,7 +56,7 @@ const Navigation = () => {
 	return (
 		<>
 			{/* Sidebar Navigation for Desktop */}
-			<nav className='w-[294px] h-screen fixed bg-[#1D1D41]  px-6'>
+			<nav className='w-[294px] h-screen overflow-x-hidden fixed bg-[#1D1D41]  px-6'>
 				<div className='flex flex-col justify-between h-full'>
 					<ul className='mt-10  space-y-2'>
 						<div className='px-6'>
