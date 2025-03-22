@@ -14,7 +14,7 @@ const Layout = ({ children }: LayoutProps) => {
 	return (
 		<div className='flex w-full min-w-screen min-h-screen bg-[#141332]'>
 			{/* Sidebar Navigation (Desktop Only) */}
-			<aside className='w-[293px] hidden lg:block'>
+			<aside className='w-[293px] overflow-x-hidden hidden lg:block'>
 				<Navigation />
 			</aside>
 
