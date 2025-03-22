@@ -38,7 +38,7 @@ const Transaction = () => {
 							</div>
 						</div>
 						<div
-							className={`w-[48px] text-xs rounded-xl h-5 p-[3px_6px] flex items-center justify-center ${
+							className={`w-[48px] mt-6 text-xs rounded-xl h-5 p-[3px_6px] flex items-center justify-center ${
 								item.title === "Total Income"
 									? "bg-[#193345] text-[#02B15A]"
 									: "bg-[#3C193B] text-[#E41414]"

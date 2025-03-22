@@ -94,18 +94,16 @@ const Login = () => {
 				</div>
 			</main>
 			<aside className='h-[100vh] hidden xl:block bg-[#141332] lg:order-2 py-1.5 overflow-hidden relative'>
-				<div className='flex  my-16 items-center justify-center'>
+				<div className='flex  my-10 items-center justify-center'>
 					<TestimonialCarousel />
 				</div>
-				<div className='absolute bottom-0  right-0 w-full margin-0 max-w-3xl'>
-					<Image
-						src='/assets/images/login.svg'
-						alt='Uifry Dashboard Preview'
-						width={920}
-						height={584}
-						className='w-full lg:h-[580px]  ml-20  bg-center bg-cover'
-					/>
-				</div>
+				<Image
+					src='/assets/images/login.svg'
+					alt='Uifry Dashboard Preview'
+					width={920}
+					height={584}
+					className='absolute bottom-0 right-0  h-[65vh] w-auto'
+				/>
 			</aside>
 		</div>
 	);
