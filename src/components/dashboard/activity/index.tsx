@@ -62,7 +62,7 @@ const Activity = () => {
 								{time.map((times) => (
 									<li key={times}>
 										<button
-											className={`w-full text-left cursor-pointer px-3 py-1 text-xs ${
+											className={`w-full text-left bg-[#1D1D41]  cursor-pointer px-3 py-1 text-xs ${
 												selectTime === times
 													? "bg-[#CBC8FF] text-[#141332]"
 													: "text-white hover:bg-[#2A2A5A]"

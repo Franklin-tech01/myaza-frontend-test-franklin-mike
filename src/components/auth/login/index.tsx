@@ -56,7 +56,7 @@ const Login = () => {
 									type='email'
 									placeholder='E.g Aliriaz@Uifry.com'
 									rules={["required", "email"]}
-									className='!bg-[#1D1D41] outline-none border-[#DCD9D9] text-white'
+									className='!bg-[#1D1D41] outline-none border-[#DCD9D9] text-white focus:ring-2 focus:ring-[#CBC8FF]'
 									paddingRight='pr-12'
 								/>
 								<Input
@@ -64,7 +64,7 @@ const Login = () => {
 									name='password'
 									type='password'
 									placeholder='************'
-									className='!bg-[#1D1D41]   outline-none border-[#DCD9D9] text-white'
+									className='!bg-[#1D1D41] outline-none border-[#DCD9D9] text-white focus:!ring-2 focus:!ring-[#CBC8FF]'
 									rules={["required"]}
 								/>
 							</div>
