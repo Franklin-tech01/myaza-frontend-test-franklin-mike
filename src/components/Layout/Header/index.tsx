@@ -24,7 +24,7 @@ const Header = () => {
 	const routeConfig = {
 		"/dashboard": {
 			title: "Welcome Back, Ali 👋",
-			subText: "Here’s what’s happening with your store today.",
+			subText: "Here's what's happening with your store today.",
 		},
 		"/wallet": {
 			title: "Wallet",
@@ -40,25 +40,25 @@ const Header = () => {
 	};
 	return (
 		<>
-			<header className='flex p-10 bg-[#141332] justify-between items-center sticky top-0 w-full  z-[1000]'>
-				<div className='mb-4 lg:mb-0'>
-					<header className=''>
+			<header className='flex flex-col xl:flex-row w-full p-4 sm:p-6 lg:p-10 bg-[#141332] justify-between items-center sticky top-0 z-[1000]'>
+				<div className='w-full mb-4 lg:mb-0'>
+					<header>
 						<h1 className='text-2xl text-white font-bold'>
 							{currentRoute.title}
 						</h1>
 						<p className='text-[#C1C1C1]'>{currentRoute.subText}</p>
 					</header>
 				</div>
-				<div>
+				<div className='w-full lg:w-auto'>
 					<FormProvider {...methods}>
-						<form className='max-lg:max-w-[300px] lg:!ml-0 flex-1'>
-							<div className='lg:w-[300px]'>
+						<form className='w-full lg:w-[300px]'>
+							<div className='w-full'>
 								<Input
 									name='search'
 									placeholder='Search'
 									paddingLeft=''
 									type='search'
-									className='text-[#AEABD8] rounded-lg !border-0 !outline-none !bg-[#1D1D41]'
+									className='text-[#AEABD8] rounded-lg !border-0 !outline-none !bg-[#1D1D41] w-full'
 									right={
 										<div className='w-9 pl-3'>
 											<Icons.Search />
@@ -69,7 +69,6 @@ const Header = () => {
 						</form>
 					</FormProvider>
 				</div>
-				{/* </div> */}
 			</header>
 		</>
 	);
