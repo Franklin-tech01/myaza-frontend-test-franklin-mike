@@ -3,7 +3,7 @@ import Header from "@/components/Layout/Header";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "uifry",
+	title: "uifry || dashboard",
 };
 
 type LayoutProps = {
@@ -40,22 +40,3 @@ const Layout = ({ children }: LayoutProps) => {
 };
 
 export default Layout;
-
-// import Header from "@/components/Layout/Header";
-// import Navigation from "@/components/Layout/Navigation/Index";
-
-// const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
-// 	return (
-// 		<div className='h-full relative'>
-// 			<div className='hidden h-full md:flex md:w-[288px] md:flex-col md:fixed md:inset-y-0  bg-[#FFF]'>
-// 				<Navigation />
-// 			</div>
-
-// 			<main className='md:pl-72 !h-[100vh]'>
-// 				<Header />
-// 				{children}
-// 			</main>
-// 		</div>
-// 	);
-// };
-// export default DashboardLayout;

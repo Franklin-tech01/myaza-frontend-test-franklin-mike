@@ -22,6 +22,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
 	title: "uifry",
+	description: "at Uifry we build your dreams ",
+	icons: {
+		icon: "/assets/icons/main-logo.svg",
+	},
 };
 
 export default function RootLayout({
