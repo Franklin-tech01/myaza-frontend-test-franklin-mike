@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 type LayoutProps = {
 	children: React.ReactNode;
 };
+s;
 
 const Layout = ({ children }: LayoutProps) => {
 	return (
@@ -26,7 +27,7 @@ const Layout = ({ children }: LayoutProps) => {
 				</header>
 
 				{/* Main Content */}
-				<main className='flex-1 bg-[#141332] min-w-s overflow-hidden p-6 sm:p-8'>
+				<main className='flex-1 bg-[#141332] min-w-s overflow-hidden px-6  py-20 xl:p-8'>
 					{children}
 				</main>
 
