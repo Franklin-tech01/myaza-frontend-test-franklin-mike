@@ -51,6 +51,22 @@ const Navigation = () => {
 				inactive: <Icons.Settings />,
 			},
 		},
+		{
+			name: "Help Centre",
+			to: "/help",
+			icon: {
+				active: <Icons.Help />,
+				inactive: <Icons.Help />,
+			},
+		},
+		{
+			name: "Dark Mode",
+			to: "/dark",
+			icon: {
+				active: <Icons.Dark />,
+				inactive: <Icons.Dark />,
+			},
+		},
 	];
 
 	return (
