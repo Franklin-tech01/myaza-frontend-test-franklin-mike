@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 type LayoutProps = {
 	children: React.ReactNode;
 };
-s;
 
 const Layout = ({ children }: LayoutProps) => {
 	return (

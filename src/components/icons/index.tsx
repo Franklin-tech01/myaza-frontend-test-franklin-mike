@@ -21,6 +21,8 @@ import Usd from "/public/assets/icons/usd.svg";
 import Euro from "/public/assets/icons/uk.svg";
 import WalletDark from "/public/assets/icons/walletdark.svg";
 import DashboardDark from "/public/assets/icons/dashboarddark.svg";
+import Plus from "/public/assets/icons/plus.svg";
+import More from "/public/assets/icons/more.svg";
 
 const Icons = {
 	Logo,
@@ -46,6 +48,8 @@ const Icons = {
 	Euro,
 	WalletDark,
 	DashboardDark,
+	Plus,
+	More,
 };
 
 export default Icons;

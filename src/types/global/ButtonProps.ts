@@ -72,7 +72,7 @@ export type ButtonProps = {
 	 * @default undefined
 	 * @note this is optional
 	 */
-	icon?: string;
+	icon?: React.ReactNode;
 	/**
 	 * The href of the button
 	 * @type {string}

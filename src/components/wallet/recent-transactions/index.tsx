@@ -55,8 +55,8 @@ const RecentTransactions = () => {
 	];
 
 	return (
-		<div className='bg-[#1D1D41] p-6  min-h-full rounded-2xl w-full '>
-			<div className='flex  justify-between items-center '>
+		<div className='bg-[#1D1D41] p-6 mt-6 h-[70vh] rounded-2xl w-full flex flex-col'>
+			<div className='flex justify-between items-center mb-4'>
 				<h2 className='text-white text-3xl font-bold'>Recent transactions</h2>
 				<Link
 					href={"/wallet"}
@@ -65,52 +65,56 @@ const RecentTransactions = () => {
 				</Link>
 			</div>
 
-			<Table>
-				<TableHeader>
-					<TableRow className=' noHover  p-0 text-[14px] border-none '>
-						<TableHead className=' text-[#AEABD8] font-normal w-1/3'>
-							Name
-						</TableHead>
-						<TableHead className=' !text-[#AEABD8] font-normal w-1/4'>
-							Date
-						</TableHead>
-						<TableHead className=' !text-[#AEABD8] font-normal w-1/4'>
-							Amount
-						</TableHead>
-						<TableHead className='!text-[#AEABD8] font-normal w-1/6'>
-							Status
-						</TableHead>
-					</TableRow>
-				</TableHeader>
-				<TableBody>
-					{transactions.map((transaction) => (
-						<TableRow
-							key={transaction.id}
-							className=' w-[540px] border-[#2D2B4D] hover:bg-transparent'>
-							<TableCell className='py-4 px-0'>
-								<div className='flex items-center'>
-									<div
-										className={`w-6 h-6 mr-1 rounded-full flex items-center justify-center `}>
-										{transaction.logo}
-									</div>
-									<span className='text-white text-sm'>{transaction.name}</span>
-								</div>
-							</TableCell>
-							<TableCell className='text-white text-sm'>
-								{transaction.date}
-							</TableCell>
-							<TableCell className='text-white text-sm'>
-								{transaction.amount}
-							</TableCell>
-							<TableCell>
-								<span className='px-3 py-1 bg-[#1A3527] text-[#02B15A] rounded-[8px] text-sm'>
-									{transaction.status}
-								</span>
-							</TableCell>
+			<div className='flex-1 overflow-auto'>
+				<Table>
+					<TableHeader>
+						<TableRow className='noHover p-0 text-[14px] border-none'>
+							<TableHead className='text-[#AEABD8] font-normal w-1/3'>
+								Name
+							</TableHead>
+							<TableHead className='!text-[#AEABD8] font-normal w-1/4'>
+								Date
+							</TableHead>
+							<TableHead className='!text-[#AEABD8] font-normal w-1/4'>
+								Amount
+							</TableHead>
+							<TableHead className='!text-[#AEABD8] font-normal w-1/6'>
+								Status
+							</TableHead>
 						</TableRow>
-					))}
-				</TableBody>
-			</Table>
+					</TableHeader>
+					<TableBody>
+						{transactions.map((transaction) => (
+							<TableRow
+								key={transaction.id}
+								className='w-[540px] border-[#2D2B4D] hover:bg-transparent'>
+								<TableCell className='py-4 px-0'>
+									<div className='flex items-center'>
+										<div
+											className={`w-6 h-6 mr-1 rounded-full flex items-center justify-center`}>
+											{transaction.logo}
+										</div>
+										<span className='text-white text-sm'>
+											{transaction.name}
+										</span>
+									</div>
+								</TableCell>
+								<TableCell className='text-white text-sm'>
+									{transaction.date}
+								</TableCell>
+								<TableCell className='text-white text-sm'>
+									{transaction.amount}
+								</TableCell>
+								<TableCell>
+									<span className='px-3 py-1 bg-[#1A3527] text-[#02B15A] rounded-[8px] text-sm'>
+										{transaction.status}
+									</span>
+								</TableCell>
+							</TableRow>
+						))}
+					</TableBody>
+				</Table>
+			</div>
 		</div>
 	);
 };
