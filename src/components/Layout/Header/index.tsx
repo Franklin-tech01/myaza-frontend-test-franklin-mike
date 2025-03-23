@@ -42,7 +42,7 @@ const Header = () => {
 		<>
 			{/* <header className='flex flex-col xl:flex-row w-full p-4 sm:p-6 lg:p-10 bg-[#141332] justify-between items-center sticky top-0 z-[1000]'> */}
 
-			<header className='flex flex-col xl:flex-row p-4  lg:p-10 sticky top-0 w-full bg-[#141332]  z-30 shadow-sm  md:px-[60px]  items-center justify-between'>
+			<header className='flex flex-col xl:flex-row p-4  lg:p-10 sticky top-0 w-full bg-[#141332]  z-30 md:px-[60px]  items-center justify-between'>
 				<div className='w-full mb-4 lg:mb-0'>
 					<header>
 						<h1 className='text-2xl text-white font-bold'>
