@@ -4,6 +4,7 @@ import Button from "@/components/global/Button";
 import Input from "@/components/global/Input";
 import Icons from "@/components/icons";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,10 +26,19 @@ const Login = () => {
 		watch,
 	} = methods;
 
+	const [isLoading, setIsLoading] = useState(false);
+
 	const onSubmit: SubmitHandler<any> = async (data) => {
+		setIsLoading(true);
 		try {
-			router.push("/dashboard");
-		} catch (error: any) {}
+			setTimeout(() => {
+				setIsLoading(false);
+				router.push("/dashboard");
+			}, 2000);
+		} catch (error: unknown) {
+			setIsLoading(false);
+			console.error("An error occurred:", error);
+		}
 	};
 
 	return (
@@ -78,6 +88,7 @@ const Login = () => {
 							<div className=' my-11 lg:mt-20 mx-auto'>
 								<Button
 									type='submit'
+									loading={isLoading}
 									disabled={!isValid}
 									className='w-full bg-[#CBC8FF] cursor-pointer !outline-none text-[#1D1D41]'>
 									Login

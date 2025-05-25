@@ -23,7 +23,7 @@ const Header = () => {
 
 	const routeConfig = {
 		"/dashboard": {
-			title: "Welcome Back, Ali 👋",
+			title: "Welcome Back, Blossom Osigimo 👋",
 			subText: "Here's what's happening with your store today.",
 		},
 		"/wallet": {
