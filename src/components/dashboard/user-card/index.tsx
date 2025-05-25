@@ -8,7 +8,7 @@ const MyCard = () => {
 				<h1 className='text-white text-xl font-bold mb-2'>My Card</h1>
 				<div className=''>
 					<p className='text-gray-400 text-[16px]'>Card Balance</p>
-					<h2 className='text-white text-xl font-bold'>$15,595.015</h2>
+					<h2 className='text-white text-xl font-bold'>$8,595.015</h2>
 				</div>
 				<VirtualCard />
 			</div>
