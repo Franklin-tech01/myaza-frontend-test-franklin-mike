@@ -3,13 +3,13 @@ import Icons from "@/components/icons";
 const TransactionData = [
 	{
 		title: "Total Income",
-		amount: "12,340",
+		amount: "1,200",
 		icon: <Icons.Arrowup />,
 		percentage: "+1.29%",
 	},
 	{
 		title: "Total Outcome",
-		amount: "9422",
+		amount: "19,520",
 		icon: <Icons.Arrowdown />,
 		percentage: "-1.29%",
 	},
