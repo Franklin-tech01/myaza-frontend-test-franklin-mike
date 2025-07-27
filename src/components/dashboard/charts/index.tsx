@@ -63,9 +63,6 @@ const AnalyticsChart = () => {
 		{ month: "Mar", income: 29000, outcome: 22000 },
 		{ month: "Apr", income: 35000, outcome: 26000 },
 		{ month: "May", income: 40000, outcome: 33000 },
-		{ month: "Jun", income: 22000, outcome: 27000 },
-		{ month: "Jul", income: 22000, outcome: 27000 },
-		{ month: "Aug", income: 22000, outcome: 27000 },
 	];
 
 	const CustomTooltip = ({

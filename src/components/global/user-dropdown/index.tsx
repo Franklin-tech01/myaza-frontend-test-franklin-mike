@@ -41,15 +41,16 @@ const UserDropdown = () => {
 				<div className='flex items-center space-x-2'>
 					<div className='w-10 h-10 bg-[#CBC8FF] rounded-full flex items-center justify-center'>
 						<Image
-							src='/assets/icons/admin.svg'
+							src='/assets/icons/admins.jpg'
 							width={40}
 							height={40}
-							alt='user-avatar'
+							alt='user-avatar '
+							className='rounded-full'
 						/>
 					</div>
 					<div>
-						<p className='text-white font-medium'>Ali Riaz</p>
-						<p className='text-sm text-[#C1C1C1]'>Web Developer</p>
+						<p className='text-white font-medium'>Franklin Mike</p>
+						<p className='text-sm text-[#C1C1C1]'>Frontend Engineer</p>
 					</div>
 				</div>
 				<div className='relative' ref={dropdownRef}>
